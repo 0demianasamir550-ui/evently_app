@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:evently_app/providers/app_theme.dart';
-import 'onboarding_header.dart';
 import 'onboarding3.dart';
 
 class OnboardingScreen4 extends StatelessWidget {
@@ -12,36 +11,96 @@ class OnboardingScreen4 extends StatelessWidget {
     var themeProvider = Provider.of<AppThemeProvider>(context);
     double screenWidth = MediaQuery.of(context).size.width;
 
+    // اختيار الصورة حسب Theme
+    String imagePath =
+    themeProvider.isDarkMode() ? 'assets/images/image_four_dark.png' : 'assets/images/image_four.png';
+
     return Scaffold(
-      body: Container(
-        width: screenWidth,
-        height: MediaQuery.of(context).size.height,
-        color: themeProvider.isDarkMode() ? Colors.black : Colors.white,
-        child: Stack(
-          children: [
-            const OnboardingHeader(),
+      backgroundColor: themeProvider.isDarkMode() ? Colors.black : Colors.white,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 16),
 
-            // الصورة
-            Positioned(
-              top: 200,
-              left: (screenWidth - 261) / 2,
-              width: 261,
-              height: 361,
-              child: Image.asset(
-                'assets/images/image_four.png',
-                fit: BoxFit.cover,
+              // Logo + Evently
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/logo_splash_screen.png',
+                    width: 53.65,
+                    height: 55.41,
+                    color: const Color(0xFF5669FF),
+                    fit: BoxFit.cover,
+                  ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    'Evently',
+                    style: TextStyle(
+                      fontFamily: 'Jockey One',
+                      fontWeight: FontWeight.w400,
+                      fontSize: 36,
+                      height: 1.0,
+                      letterSpacing: -0.3,
+                      color: Color(0xFF5669FF),
+                    ),
+                  ),
+                ],
               ),
-            ),
 
-            // Pagination Dots (النقطة الثالثة ملونة)
-            Positioned(
-              bottom: 90,
-              left: 0,
-              right: 0,
-              child: Row(
+              const SizedBox(height: 30),
+
+              // الصورة الكبيرة حسب Theme
+              Center(
+                child: Image.asset(
+                  imagePath,
+                  width: 261,
+                  height: 361,
+                  fit: BoxFit.cover,
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              // الجملة الأولى
+              const Text(
+                'Connect with Friends & Share Moments',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20,
+                  height: 1.0,
+                  letterSpacing: 0,
+                  color: Color(0xFF5669FF),
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
+              // الجملة الثانية حسب Theme
+              Text(
+                'Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w400,
+                  fontSize: 16,
+                  height: 1.5,
+                  color: themeProvider.isDarkMode() ? Colors.white : Colors.black,
+                ),
+              ),
+
+              const Spacer(),
+
+              // Pagination Dots
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(3, (index) {
-                  bool isActive = index == 2;
+                  bool isActive = index == 2; // الصفحة الرابعة → آخر نقطة
                   return Container(
                     margin: const EdgeInsets.symmetric(horizontal: 8),
                     width: 12,
@@ -53,81 +112,80 @@ class OnboardingScreen4 extends StatelessWidget {
                   );
                 }),
               ),
-            ),
 
-            // سهم يسار → العودة للصفحة الثالثة
-            Positioned(
-              bottom: 20,
-              left: 16,
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const OnboardingScreen3()),
-                  );
-                },
-                borderRadius: BorderRadius.circular(30),
-                child: Container(
-                  width: 56,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: const Color(0xFF5669FF), width: 2),
-                  ),
-                  child: const Center(
-                    child: Icon(
-                      Icons.arrow_back,
-                      color: Color(0xFF5669FF),
-                      size: 28,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+              const SizedBox(height: 20),
 
-            // زر Let's Start → الانتقال للـ Home Screen
-            Positioned(
-              bottom: 20,
-              right: 16,
-              child: InkWell(
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Scaffold(
-                        body: Center(
-                          child: Text(
-                            "Home Screen",
-                            style: TextStyle(fontSize: 24),
-                          ),
+              // أسهم العودة والانتقال
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // سهم العودة للصفحة الثالثة
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const OnboardingScreen3()),
+                      );
+                    },
+                    borderRadius: BorderRadius.circular(30),
+                    child: Container(
+                      width: 56,
+                      height: 56,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: const Color(0xFF5669FF), width: 2),
+                      ),
+                      child: const Center(
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Color(0xFF5669FF),
+                          size: 28,
                         ),
                       ),
                     ),
-                  );
-                },
-                borderRadius: BorderRadius.circular(16),
-                child: Container(
-                  width: 120,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF5669FF),
-                    borderRadius: BorderRadius.circular(16),
                   ),
-                  child: const Center(
-                    child: Text(
-                      "Let's Start",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+
+                  // سهم للـ Home Screen
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Scaffold(
+                            body: Center(
+                              child: Text(
+                                "Home Screen",
+                                style: TextStyle(fontSize: 24),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    borderRadius: BorderRadius.circular(30),
+                    child: Container(
+                      width: 56,
+                      height: 56,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: const Color(0xFF5669FF), width: 2),
+                      ),
+                      child: const Center(
+                        child: Icon(
+                          Icons.arrow_forward,
+                          color: Color(0xFF5669FF),
+                          size: 28,
+                        ),
                       ),
                     ),
                   ),
-                ),
+                ],
               ),
-            ),
-          ],
+
+              const SizedBox(height: 16),
+            ],
+          ),
         ),
       ),
     );
