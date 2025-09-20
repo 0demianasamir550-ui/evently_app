@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:evently_app/providers/app_theme.dart';
 import 'package:evently_app/providers/app_language_provider.dart';
 import 'package:evently_app/home/tabs/profile/profile_tab.dart';
-import 'package:evently_app/home/tabs/profile//favorite_tab.dart';
+import 'package:evently_app/home/tabs/profile/favorite_tab.dart';
 
 class MyAppWidget extends StatefulWidget {
   const MyAppWidget({super.key});

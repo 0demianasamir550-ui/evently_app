@@ -10,5 +10,12 @@
   "home" : "الرئسيه",
   "map" : "الخريطه",
   "favorite" : "المفضله",
-  "profile" : "الملف الشخصى"
+  "profile" : "الملف الشخصى",
+
+  "Search for Event" : "ابحث عن حدث",
+  "This is Brithday Party" : "هذه حفله عيد ميلاد",
+  "Meeting for Updating The Development Method" : "اجتماع لتحديث طريقه التطوير",
+  "Now" : "الان"
+
+
 }

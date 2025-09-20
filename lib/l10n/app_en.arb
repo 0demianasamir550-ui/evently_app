@@ -10,6 +10,11 @@
   "home" : "Home",
   "map" : "Map",
   "favorite" : "Favorite",
-  "profile" : "Profile"
+  "profile" : "Profile",
+
+  "search for event" : "Search for Event",
+  "this is birthday party" : "This is Birtdat Party",
+  "meeting for updatind the development method" : "Meeting for Updating The Development Method",
+  "now" : "Now"
 
 }
