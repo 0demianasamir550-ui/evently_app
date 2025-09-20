@@ -28,4 +28,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get logout => 'تسجيل الخروج';
+
+  @override
+  String get home => 'الرئسيه';
+
+  @override
+  String get map => 'الخريطه';
+
+  @override
+  String get favorite => 'المفضله';
+
+  @override
+  String get profile => 'الملف الشخصى';
 }

@@ -79,7 +79,9 @@ class OnboardingScreen1 extends StatelessWidget {
             // ====== الصورة ======
             Center(
               child: Image.asset(
-                'assets/images/image_one.png',
+                themeProvider.isDarkMode()
+                    ? 'assets/images/image_one_dark.png'
+                    : 'assets/images/image_one.png',
                 width: 261,
                 height: 361,
                 fit: BoxFit.cover,

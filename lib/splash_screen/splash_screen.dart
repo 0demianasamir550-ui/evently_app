@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:evently_app/providers/app_theme.dart'; // AppThemeProvider موجود
+import 'package:evently_app/providers/app_theme.dart';
+import 'package:evently_app/onboarding_screen/onboarding1.dart'; // استيراد الصفحة الأولى من Onboarding
 
 void main() {
   runApp(
@@ -32,8 +33,25 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // تأخير 5 ثواني ثم الانتقال إلى OnboardingScreen1
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const OnboardingScreen1()),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +64,7 @@ class SplashScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Spacer(flex: 3),
+            const Spacer(flex: 3),
 
             // ====== اللوجو الرئيسي ======
             Image.asset(
@@ -57,13 +75,13 @@ class SplashScreen extends StatelessWidget {
               colorBlendMode: BlendMode.srcIn,
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
-            // ====== نص Contact Evently ======
-            Text(
+            // ====== نص Evently ======
+            const Text(
               'Evently',
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: 'Jockey One',
                 fontWeight: FontWeight.w400,
                 fontSize: 36,
@@ -73,7 +91,7 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
 
-            Spacer(flex: 4),
+            const Spacer(flex: 4),
 
             // ====== الصورة السفلية route_logo.png بلون #5669FF ======
             Image.asset(
@@ -84,7 +102,7 @@ class SplashScreen extends StatelessWidget {
               colorBlendMode: BlendMode.srcIn,
             ),
 
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
 
             // ====== نص Supervised by Mohamed Nabil ======
             Padding(
@@ -93,9 +111,9 @@ class SplashScreen extends StatelessWidget {
                   bottom: screenHeight * 0.02),
               child: Align(
                 alignment: Alignment.centerRight,
-                child: Text(
+                child: const Text(
                   'Supervised by Mohamed Nabil',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
