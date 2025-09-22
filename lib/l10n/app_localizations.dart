@@ -163,6 +163,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Profile'**
   String get profile;
+
+  /// No description provided for @searchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for Event'**
+  String get searchHint;
+
+  /// No description provided for @birthdayText.
+  ///
+  /// In en, this message translates to:
+  /// **'This is Birthday Party'**
+  String get birthdayText;
+
+  /// No description provided for @meetingText.
+  ///
+  /// In en, this message translates to:
+  /// **'Meeting for Updating The Development Method'**
+  String get meetingText;
+
+  /// No description provided for @nowLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Now'**
+  String get nowLabel;
+
+  /// No description provided for @welcome_back.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Back ✨'**
+  String get welcome_back;
+
+  /// No description provided for @user_name.
+  ///
+  /// In en, this message translates to:
+  /// **'John Safwat'**
+  String get user_name;
+
+  /// No description provided for @location.
+  ///
+  /// In en, this message translates to:
+  /// **'Cairo, Egypt'**
+  String get location;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
+
+  /// No description provided for @sport.
+  ///
+  /// In en, this message translates to:
+  /// **'Sport'**
+  String get sport;
+
+  /// No description provided for @birthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday'**
+  String get birthday;
+
+  /// No description provided for @all_events.
+  ///
+  /// In en, this message translates to:
+  /// **'All Events'**
+  String get all_events;
+
+  /// No description provided for @sports_events.
+  ///
+  /// In en, this message translates to:
+  /// **'Sports Events'**
+  String get sports_events;
+
+  /// No description provided for @birthday_events.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday Events'**
+  String get birthday_events;
 }
 
 class _AppLocalizationsDelegate

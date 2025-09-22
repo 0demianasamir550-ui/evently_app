@@ -40,4 +40,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profile => 'Profile';
+
+  @override
+  String get searchHint => 'Search for Event';
+
+  @override
+  String get birthdayText => 'This is Birthday Party';
+
+  @override
+  String get meetingText => 'Meeting for Updating The Development Method';
+
+  @override
+  String get nowLabel => 'Now';
+
+  @override
+  String get welcome_back => 'Welcome Back ✨';
+
+  @override
+  String get user_name => 'John Safwat';
+
+  @override
+  String get location => 'Cairo, Egypt';
+
+  @override
+  String get all => 'All';
+
+  @override
+  String get sport => 'Sport';
+
+  @override
+  String get birthday => 'Birthday';
+
+  @override
+  String get all_events => 'All Events';
+
+  @override
+  String get sports_events => 'Sports Events';
+
+  @override
+  String get birthday_events => 'Birthday Events';
 }

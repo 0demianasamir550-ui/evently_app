@@ -1,21 +1,29 @@
 {
-  "language" : "اللغه",
-  "english" : "الانجليزيه",
-  "arabic" : "العربيه",
-  "theme" : "النمط",
-  "dark" : "ليلى",
-  "light" : "نهارى",
-  "logout" : "تسجيل الخروج",
+  "language": "اللغة",
+  "english": "الإنجليزية",
+  "arabic": "العربية",
+  "theme": "النمط",
+  "dark": "ليلي",
+  "light": "نهاري",
+  "logout": "تسجيل الخروج",
 
-  "home" : "الرئسيه",
-  "map" : "الخريطه",
-  "favorite" : "المفضله",
-  "profile" : "الملف الشخصى",
+  "home": "الرئيسية",
+  "map": "الخريطة",
+  "favorite": "المفضلة",
+  "profile": "الملف الشخصي",
 
-  "Search for Event" : "ابحث عن حدث",
-  "This is Brithday Party" : "هذه حفله عيد ميلاد",
-  "Meeting for Updating The Development Method" : "اجتماع لتحديث طريقه التطوير",
-  "Now" : "الان"
+  "searchHint": "ابحث عن حدث",
+  "birthdayText": "هذه حفلة عيد ميلاد",
+  "meetingText": "اجتماع لتحديث طريقة التطوير",
+  "nowLabel": "الآن",
 
-
+  "welcome_back": "مرحبًا مجددًا ✨",
+  "user_name": "جون صفوت",
+  "location": "القاهرة، مصر",
+  "all": "الكل",
+  "sport": "رياضة",
+  "birthday": "عيد ميلاد",
+  "all_events": "كل الأحداث",
+  "sports_events": "أحداث رياضية",
+  "birthday_events": "أحداث عيد ميلاد"
 }

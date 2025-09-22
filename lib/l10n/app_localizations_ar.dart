@@ -9,35 +9,74 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get language => 'اللغه';
+  String get language => 'اللغة';
 
   @override
-  String get english => 'الانجليزيه';
+  String get english => 'الإنجليزية';
 
   @override
-  String get arabic => 'العربيه';
+  String get arabic => 'العربية';
 
   @override
   String get theme => 'النمط';
 
   @override
-  String get dark => 'ليلى';
+  String get dark => 'ليلي';
 
   @override
-  String get light => 'نهارى';
+  String get light => 'نهاري';
 
   @override
   String get logout => 'تسجيل الخروج';
 
   @override
-  String get home => 'الرئسيه';
+  String get home => 'الرئيسية';
 
   @override
-  String get map => 'الخريطه';
+  String get map => 'الخريطة';
 
   @override
-  String get favorite => 'المفضله';
+  String get favorite => 'المفضلة';
 
   @override
-  String get profile => 'الملف الشخصى';
+  String get profile => 'الملف الشخصي';
+
+  @override
+  String get searchHint => 'ابحث عن حدث';
+
+  @override
+  String get birthdayText => 'هذه حفلة عيد ميلاد';
+
+  @override
+  String get meetingText => 'اجتماع لتحديث طريقة التطوير';
+
+  @override
+  String get nowLabel => 'الآن';
+
+  @override
+  String get welcome_back => 'مرحبًا مجددًا ✨';
+
+  @override
+  String get user_name => 'جون صفوت';
+
+  @override
+  String get location => 'القاهرة، مصر';
+
+  @override
+  String get all => 'الكل';
+
+  @override
+  String get sport => 'رياضة';
+
+  @override
+  String get birthday => 'عيد ميلاد';
+
+  @override
+  String get all_events => 'كل الأحداث';
+
+  @override
+  String get sports_events => 'أحداث رياضية';
+
+  @override
+  String get birthday_events => 'أحداث عيد ميلاد';
 }
