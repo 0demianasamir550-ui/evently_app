@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:evently_app/providers/app_theme.dart';
 import 'package:evently_app/providers/app_language_provider.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
+import 'register_light.dart';
 
 // ------------------ CustomBox Widget ------------------
 class CustomBox extends StatelessWidget {
@@ -82,19 +83,17 @@ class _LoginPageState extends State<LoginPage> {
       builder: (context, themeProvider, languageProvider, child) {
         final isDark = themeProvider.isDarkMode();
         final loc = AppLocalizations.of(context)!;
+
         final backgroundColor = isDark ? const Color(0xFF101127) : Colors.white;
         final logoColor = const Color(0xFF5669FF);
+        final textColor = isDark ? Colors.white : const Color(0xFF7B7B7B);
 
         return Scaffold(
           backgroundColor: backgroundColor,
           body: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
-                  width: double.infinity,
-                  height: 48,
-                  child: Container(color: backgroundColor),
-                ),
+                SizedBox(width: double.infinity, height: 48, child: Container(color: backgroundColor)),
                 const SizedBox(height: 8),
                 Center(
                   child: SizedBox(
@@ -126,17 +125,16 @@ class _LoginPageState extends State<LoginPage> {
                 CustomBox(
                   child: Row(
                     children: [
-                      Icon(Icons.email, color: isDark ? Colors.white : Color(0xFF7B7B7B)),
+                      Icon(Icons.email, color: textColor),
                       const SizedBox(width: 8),
                       Expanded(
                         child: TextField(
                           controller: emailController,
                           keyboardType: TextInputType.emailAddress,
-                          style: TextStyle(color: isDark ? Colors.white : Colors.black),
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: loc.email,
-                            hintStyle: TextStyle(color: isDark ? Colors.white : Color(0xFF7B7B7B)),
+                            hintStyle: TextStyle(color: textColor),
                           ),
                         ),
                       ),
@@ -148,17 +146,16 @@ class _LoginPageState extends State<LoginPage> {
                 CustomBox(
                   child: Row(
                     children: [
-                      Icon(Icons.lock, color: isDark ? Colors.white : Color(0xFF7B7B7B)),
+                      Icon(Icons.lock, color: textColor),
                       const SizedBox(width: 8),
                       Expanded(
                         child: TextField(
                           controller: passwordController,
                           obscureText: _obscurePassword,
-                          style: TextStyle(color: isDark ? Colors.white : Colors.black),
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: loc.password,
-                            hintStyle: TextStyle(color: isDark ? Colors.white : Color(0xFF7B7B7B)),
+                            hintStyle: TextStyle(color: textColor),
                           ),
                         ),
                       ),
@@ -170,13 +167,13 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         child: Icon(
                           _obscurePassword ? Icons.visibility_off : Icons.visibility,
-                          color: isDark ? Colors.white : Color(0xFF7B7B7B),
+                          color: isDark ? Colors.white : Colors.grey[800],
                         ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 4),
                 // Forget Password
                 Align(
                   alignment: Alignment.centerRight,
@@ -184,12 +181,16 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       loc.forget_password,
-                      style: const TextStyle(color: Color(0xFF5669FF), decoration: TextDecoration.underline),
+                      style: const TextStyle(
+                        color: Color(0xFF5669FF),
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 16),
-                // Login Button
+                const SizedBox(height: 24),
+                // Login button
                 SizedBox(
                   width: 361,
                   height: 56,
@@ -197,7 +198,9 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () => handleLogin(loc),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF5669FF),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
                     ),
                     child: Text(
                       loc.login,
@@ -206,100 +209,98 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                // Don't Have Account & Create Account
+                // Don't Have Account + Create Account
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       loc.dont_have_account,
-                      style: TextStyle(color: isDark ? Colors.white : Color(0xFF7B7B7B)),
+                      style: TextStyle(
+                        color: isDark ? Colors.white : Colors.black,
+                      ),
                     ),
                     const SizedBox(width: 4),
                     GestureDetector(
                       onTap: () {
-                        print('Navigate to Register');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const RegisterPage()),
+                        );
                       },
                       child: Text(
                         loc.create_account,
-                        style: const TextStyle(color: Color(0xFF5669FF), decoration: TextDecoration.underline),
+                        style: const TextStyle(
+                          color: Color(0xFF5669FF),
+                          decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 16),
-                // OR Line
+                // OR line
                 Row(
                   children: [
-                    const Expanded(child: Divider(thickness: 1, color: Color(0xFF5669FF))),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Text(loc.or, style: const TextStyle(color: Color(0xFF5669FF))),
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 16, right: 8),
+                        height: 1,
+                        color: const Color(0xFF5669FF),
+                      ),
                     ),
-                    const Expanded(child: Divider(thickness: 1, color: Color(0xFF5669FF))),
+                    Text(
+                      loc.or,
+                      style: const TextStyle(color: Color(0xFF5669FF)),
+                    ),
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 8, right: 16),
+                        height: 1,
+                        color: const Color(0xFF5669FF),
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 16),
-                // Login With Google
-                CustomBox(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/images/google_icon.png",
-                        width: 24,
-                        height: 24,
+                // Google login
+                SizedBox(
+                  width: 361,
+                  height: 56,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Google login code placeholder
+                      print('Login with Google');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        side: const BorderSide(color: Color(0xFF5669FF)),
                       ),
-                      const SizedBox(width: 8),
-                      Text(
-                        "Login With Google",
-                        style: const TextStyle(color: Color(0xFF5669FF), fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset('assets/images/google_icon.png', width: 24, height: 24),
+                        const SizedBox(width: 8),
+                        const Text(
+                          "Login With Google",
+                          style: TextStyle(
+                            color: Color(0xFF5669FF),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                const SizedBox(height: 32),
+                const SizedBox(height: 24),
               ],
             ),
           ),
         );
       },
-    );
-  }
-}
-
-// ==================== main ====================
-void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => AppThemeProvider()),
-        ChangeNotifierProvider(create: (_) => AppLanguageProvider()),
-      ],
-      child: const MyApp(),
-    ),
-  );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final themeProvider = Provider.of<AppThemeProvider>(context);
-    final languageProvider = Provider.of<AppLanguageProvider>(context);
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(cardColor: Colors.white),
-      darkTheme: ThemeData.dark().copyWith(cardColor: const Color(0xFF1E1E1E)),
-      themeMode: themeProvider.isDarkMode() ? ThemeMode.dark : ThemeMode.light,
-      locale: Locale(languageProvider.appLanguage),
-      supportedLocales: const [
-        Locale('en'),
-        Locale('ar'),
-      ],
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      home: const LoginPage(),
     );
   }
 }
