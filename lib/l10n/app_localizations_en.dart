@@ -79,4 +79,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get birthday_events => 'Birthday Events';
+
+  @override
+  String get register => 'Register';
+
+  @override
+  String get evently => 'Evently';
+
+  @override
+  String get login => 'Login';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get fill_all_fields => 'Please fill all fields';
+
+  @override
+  String get invalid_email => 'Please enter a vaild email';
+
+  @override
+  String get forget_password => 'Forget Password?';
+
+  @override
+  String get dont_have_account => 'Don\'t Have Account?';
+
+  @override
+  String get create_account => 'Create Account';
+
+  @override
+  String get or => 'Or';
+
+  @override
+  String get login_with_google => 'Login With Google';
 }

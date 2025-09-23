@@ -25,5 +25,18 @@
   "birthday": "Birthday",
   "all_events": "All Events",
   "sports_events": "Sports Events",
-  "birthday_events": "Birthday Events"
+  "birthday_events": "Birthday Events",
+  "register" : "Register",
+  "evently" : "Evently",
+  "login" : "Login",
+  "email" : "Email",
+  "password" : "Password",
+  "fill_all_fields" : "Please fill all fields",
+  "invalid_email" : "Please enter a vaild email",
+  "forget_password" : "Forget Password?",
+  "dont_have_account" : "Don't Have Account?",
+  "create_account" : "Create Account",
+  "or" : "Or",
+  "login_with_google" : "Login With Google"
+
 }

@@ -59,7 +59,7 @@ class EventDemoScreen extends StatelessWidget {
       body: Column(
         children: [
           // مساحة فارغة أعلى
-          SizedBox(height: 100),
+          SizedBox(height: 40),
 
           // المستطيلات قابلة للتمرير
           Expanded(

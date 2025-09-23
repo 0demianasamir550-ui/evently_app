@@ -241,6 +241,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Birthday Events'**
   String get birthday_events;
+
+  /// No description provided for @register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
+
+  /// No description provided for @evently.
+  ///
+  /// In en, this message translates to:
+  /// **'Evently'**
+  String get evently;
+
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @fill_all_fields.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill all fields'**
+  String get fill_all_fields;
+
+  /// No description provided for @invalid_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a vaild email'**
+  String get invalid_email;
+
+  /// No description provided for @forget_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password?'**
+  String get forget_password;
+
+  /// No description provided for @dont_have_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t Have Account?'**
+  String get dont_have_account;
+
+  /// No description provided for @create_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get create_account;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'Or'**
+  String get or;
+
+  /// No description provided for @login_with_google.
+  ///
+  /// In en, this message translates to:
+  /// **'Login With Google'**
+  String get login_with_google;
 }
 
 class _AppLocalizationsDelegate

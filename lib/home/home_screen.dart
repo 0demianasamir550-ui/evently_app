@@ -4,6 +4,7 @@ import 'package:evently_app/providers/app_theme.dart';
 import 'package:evently_app/providers/app_language_provider.dart';
 import 'package:evently_app/home/tabs/profile/profile_tab.dart';
 import 'package:evently_app/home/tabs/profile/favorite_tab.dart';
+import 'package:evently_app/home/tabs/home_tab.dart'; // ✅ ضفنا HomeTab
 
 class MyAppWidget extends StatefulWidget {
   const MyAppWidget({super.key});
@@ -15,7 +16,7 @@ class _MyAppWidgetState extends State<MyAppWidget> {
   int selectedIndex = 0;
 
   final List<Widget> pages = [
-    const Center(child: Text("Home")),
+    const HomeTab(), // ✅ بدل Center بـ HomeTab
     const Center(child: Text("Map")),
     const FavoriteTab(),
     const ProfileTab(),

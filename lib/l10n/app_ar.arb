@@ -25,5 +25,17 @@
   "birthday": "عيد ميلاد",
   "all_events": "كل الأحداث",
   "sports_events": "أحداث رياضية",
-  "birthday_events": "أحداث عيد ميلاد"
+  "birthday_events": "أحداث عيد ميلاد",
+  "register" : "تسجيل",
+  "evently" : "ايفينتلى",
+  "login" : "تسجيل الدخول",
+  "email" : "البريد الالكترونى",
+  "password" : "كلمه المرور",
+  "fill_all_fields" : "من فضلك املا جميع الحقول",
+  "invalid_email" : "من فضلك ادخل بريد الكترونى صحيح",
+  "forget_password" : "نسيت كلمه المرور؟",
+  "dont_have_account" : "ليس لديك حساب؟",
+  "create_account" : "انشئ حساب",
+  "or" : "أو",
+  "login_with_google" : "تسجيل الدخول عبر جوجل"
 }

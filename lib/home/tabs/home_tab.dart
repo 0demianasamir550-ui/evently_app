@@ -4,6 +4,8 @@ import 'package:evently_app/providers/app_theme.dart';
 import 'package:evently_app/providers/app_language_provider.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
 
+import '../widgets/event_card_widget.dart'; // ✅ ملف الـ widget
+
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
   @override
@@ -178,21 +180,34 @@ class _HomeTabState extends State<HomeTab> {
             ),
           ),
           const SizedBox(height: 16),
-          // Content
+          // Content (Cards بدل النص الفاضي)
           Expanded(
-            child: Center(
-              child: Text(
-                selectedIndex == 0
-                    ? loc.all_events
-                    : selectedIndex == 1
-                    ? loc.sports_events
-                    : selectedIndex == 2
-                    ? loc.birthday_events
-                    : loc.sports_events,
-                style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: isDark ? Colors.white : Colors.black),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: ListView(
+                children: [
+                  EventCardWidget(
+                    imagePath: "assets/images/birthday.png",
+                    number: "21",
+                    label: "Now",
+                    textLabel: "Birthday Party",
+                  ),
+                  const SizedBox(height: 16),
+                  EventCardWidget(
+                    imagePath: "assets/images/meeting.png",
+                    number: "22",
+                    label: "Now",
+                    textLabel: "Business Meeting",
+                  ),
+                  const SizedBox(height: 16),
+                  EventCardWidget(
+                    imagePath: "assets/images/exhibition.png",
+                    number: "23",
+                    label: "Now",
+                    textLabel: "Art Exhibition",
+                  ),
+                  const SizedBox(height: 80),
+                ],
               ),
             ),
           ),
@@ -254,17 +269,20 @@ class _HomeTabState extends State<HomeTab> {
 
 // ==================== main ====================
 void main() {
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (_) => AppThemeProvider()),
-      ChangeNotifierProvider(create: (_) => AppLanguageProvider()),
-    ],
-    child: const MyApp(),
-  ));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AppThemeProvider()),
+        ChangeNotifierProvider(create: (_) => AppLanguageProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<AppThemeProvider>(context);
@@ -272,19 +290,12 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primaryColor: Colors.blue,
-        scaffoldBackgroundColor: Colors.white,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.blueGrey,
-        scaffoldBackgroundColor: const Color(0xFF101127),
-      ),
-      themeMode: themeProvider.appTheme,
+      theme: themeProvider.isDarkMode() ? ThemeData.dark() : ThemeData.light(),
       locale: Locale(languageProvider.appLanguage),
-      supportedLocales: AppLocalizations.supportedLocales,
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ar'),
+      ],
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       home: const HomeTab(),
     );

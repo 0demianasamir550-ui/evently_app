@@ -79,4 +79,40 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get birthday_events => 'أحداث عيد ميلاد';
+
+  @override
+  String get register => 'تسجيل';
+
+  @override
+  String get evently => 'ايفينتلى';
+
+  @override
+  String get login => 'تسجيل الدخول';
+
+  @override
+  String get email => 'البريد الالكترونى';
+
+  @override
+  String get password => 'كلمه المرور';
+
+  @override
+  String get fill_all_fields => 'من فضلك املا جميع الحقول';
+
+  @override
+  String get invalid_email => 'من فضلك ادخل بريد الكترونى صحيح';
+
+  @override
+  String get forget_password => 'نسيت كلمه المرور؟';
+
+  @override
+  String get dont_have_account => 'ليس لديك حساب؟';
+
+  @override
+  String get create_account => 'انشئ حساب';
+
+  @override
+  String get or => 'أو';
+
+  @override
+  String get login_with_google => 'تسجيل الدخول عبر جوجل';
 }
