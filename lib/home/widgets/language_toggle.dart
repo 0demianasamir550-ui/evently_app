@@ -12,13 +12,22 @@ class LanguageToggle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        _buildLanguageOption("en", "🇺🇸"),
-        const SizedBox(width: 10),
-        _buildLanguageOption("ar", "🇪🇬"),
-      ],
+    return Container(
+      width: 73.28,
+      height: 30.76,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(
+        border: Border.all(color: const Color(0xFF5669FF), width: 2),
+        borderRadius: BorderRadius.circular(30.76 / 2),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _buildLanguageOption("en", "🇺🇸"),
+          const SizedBox(width: 8),
+          _buildLanguageOption("ar", "🇪🇬"),
+        ],
+      ),
     );
   }
 
@@ -27,15 +36,17 @@ class LanguageToggle extends StatelessWidget {
     return GestureDetector(
       onTap: () => onChanged(lang),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        width: 21.71,
+        height: 21.71,
         decoration: BoxDecoration(
-          color: isSelected ? Colors.blue : Colors.grey[300],
-          borderRadius: BorderRadius.circular(20),
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: isSelected ? const Color(0xFF5669FF) : Colors.transparent,
+            width: 2,
+          ),
         ),
-        child: Text(
-          flag,
-          style: const TextStyle(fontSize: 24),
-        ),
+        alignment: Alignment.center,
+        child: Text(flag, style: const TextStyle(fontSize: 16)),
       ),
     );
   }

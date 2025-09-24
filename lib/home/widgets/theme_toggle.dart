@@ -12,13 +12,22 @@ class ThemeToggle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        _buildThemeOption(false, Icons.wb_sunny),
-        const SizedBox(width: 10),
-        _buildThemeOption(true, Icons.nightlight_round),
-      ],
+    return Container(
+      width: 73.28,
+      height: 30.76,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(
+        border: Border.all(color: const Color(0xFF5669FF), width: 2),
+        borderRadius: BorderRadius.circular(30.76 / 2),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _buildThemeOption(false, Icons.wb_sunny),
+          const SizedBox(width: 8),
+          _buildThemeOption(true, Icons.nightlight_round),
+        ],
+      ),
     );
   }
 
@@ -27,14 +36,17 @@ class ThemeToggle extends StatelessWidget {
     return GestureDetector(
       onTap: () => onChanged(dark),
       child: Container(
-        padding: const EdgeInsets.all(12),
+        width: 21.71,
+        height: 21.71,
         decoration: BoxDecoration(
-          color: isSelected ? Colors.blue : Colors.grey[300],
-          borderRadius: BorderRadius.circular(20),
+          shape: BoxShape.circle,
+          color: isSelected ? const Color(0xFF5669FF) : Colors.grey[300],
         ),
+        alignment: Alignment.center,
         child: Icon(
           icon,
-          color: isSelected ? Colors.white : Colors.black,
+          size: 14,
+          color: isSelected ? Colors.white : const Color(0xFF5669FF),
         ),
       ),
     );

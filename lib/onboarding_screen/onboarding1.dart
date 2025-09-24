@@ -5,6 +5,10 @@ import 'package:evently_app/providers/app_language_provider.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/onboarding_screen/onboarding2.dart'; // استيراد الصفحة الثانية
 
+// import بالـ alias علشان نتفادى أي تضارب بأسماء الويجتس
+import '../home/widgets/language_toggle.dart' as lang_widget;
+import '../home/widgets/theme_toggle.dart' as theme_widget;
+
 void main() {
   runApp(
     MultiProvider(
@@ -47,6 +51,9 @@ class OnboardingScreen1 extends StatelessWidget {
     var themeProvider = Provider.of<AppThemeProvider>(context);
     var langProvider = Provider.of<AppLanguageProvider>(context);
     final loc = AppLocalizations.of(context)!;
+
+    // هل اللغة إنجليزي؟ نستخدمها لتحديد ترتيب العناصر
+    final bool isEnglish = langProvider.appLanguage == 'en';
 
     return Scaffold(
       body: Container(
@@ -130,6 +137,98 @@ class OnboardingScreen1 extends StatelessWidget {
             ),
 
             const Spacer(),
+
+            // 🔹 Language row (ترتيب ديناميكي حسب اللغة)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: isEnglish
+                    ? [
+                  // لو إنجليزي: النص على الشمال والويجت على اليمين
+                  Text(
+                    loc.language,
+                    style: const TextStyle(
+                      color: Color(0xFF5669FF),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  lang_widget.LanguageToggle(
+                    selectedLanguage: langProvider.appLanguage,
+                    onChanged: (lang) {
+                      langProvider.changeLanguage(lang);
+                    },
+                  ),
+                ]
+                    : [
+                  // لو عربي: الويجت على الشمال والنص على اليمين
+                  lang_widget.LanguageToggle(
+                    selectedLanguage: langProvider.appLanguage,
+                    onChanged: (lang) {
+                      langProvider.changeLanguage(lang);
+                    },
+                  ),
+                  Text(
+                    loc.language,
+                    style: const TextStyle(
+                      color: Color(0xFF5669FF),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // 🔹 Theme row (ترتيب ديناميكي حسب اللغة)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: isEnglish
+                    ? [
+                  // لو إنجليزي: النص على الشمال والويجت على اليمين
+                  Text(
+                    loc.theme,
+                    style: const TextStyle(
+                      color: Color(0xFF5669FF),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  theme_widget.ThemeToggle(
+                    isDark: themeProvider.isDarkMode(),
+                    onChanged: (dark) {
+                      // نستخدم changeTheme في الـ provider
+                      themeProvider.changeTheme(
+                        dark ? ThemeMode.dark : ThemeMode.light,
+                      );
+                    },
+                  ),
+                ]
+                    : [
+                  // لو عربي: الويجت على الشمال والنص على اليمين
+                  theme_widget.ThemeToggle(
+                    isDark: themeProvider.isDarkMode(),
+                    onChanged: (dark) {
+                      themeProvider.changeTheme(
+                        dark ? ThemeMode.dark : ThemeMode.light,
+                      );
+                    },
+                  ),
+                  Text(
+                    loc.theme,
+                    style: const TextStyle(
+                      color: Color(0xFF5669FF),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
             // زر Let's Start
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),

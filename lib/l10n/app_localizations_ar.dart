@@ -114,7 +114,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get or => 'أو';
 
   @override
-  String get login_with_google => 'تسجيل الدخول عبر جوجل';
+  String get login_with_google => 'تسجيل الدخول باستخدام جوجل';
 
   @override
   String get confirm_password => 'تاكيد كلمه المرور';
