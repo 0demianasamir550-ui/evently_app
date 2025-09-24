@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:evently_app/providers/app_theme.dart';
+import 'package:evently_app/l10n/app_localizations.dart';
+import '../authentication/login_light.dart';
 import 'onboarding3.dart';
 
 class OnboardingScreen4 extends StatelessWidget {
@@ -9,11 +11,14 @@ class OnboardingScreen4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var themeProvider = Provider.of<AppThemeProvider>(context);
-    double screenWidth = MediaQuery.of(context).size.width;
 
     // اختيار الصورة حسب Theme
-    String imagePath =
-    themeProvider.isDarkMode() ? 'assets/images/image_four_dark.png' : 'assets/images/image_four.png';
+    String imagePath = themeProvider.isDarkMode()
+        ? 'assets/images/image_four_dark.png'
+        : 'assets/images/image_four.png';
+
+    // جلب الترجمات
+    var loc = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: themeProvider.isDarkMode() ? Colors.black : Colors.white,
@@ -37,9 +42,9 @@ class OnboardingScreen4 extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                   const SizedBox(width: 10),
-                  const Text(
-                    'Evently',
-                    style: TextStyle(
+                  Text(
+                    loc.evently,
+                    style: const TextStyle(
                       fontFamily: 'Jockey One',
                       fontWeight: FontWeight.w400,
                       fontSize: 36,
@@ -66,10 +71,10 @@ class OnboardingScreen4 extends StatelessWidget {
               const SizedBox(height: 20),
 
               // الجملة الأولى
-              const Text(
-                'Connect with Friends & Share Moments',
+              Text(
+                loc.connect_with_friends,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
                   fontSize: 20,
@@ -81,9 +86,9 @@ class OnboardingScreen4 extends StatelessWidget {
 
               const SizedBox(height: 10),
 
-              // الجملة الثانية حسب Theme
+              // الجملة الثانية
               Text(
-                'Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.',
+                loc.share_moments_with_friends,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'Inter',
@@ -146,20 +151,13 @@ class OnboardingScreen4 extends StatelessWidget {
                     ),
                   ),
 
-                  // سهم للـ Home Screen
+                  // سهم للـ Login Page
                   InkWell(
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Scaffold(
-                            body: Center(
-                              child: Text(
-                                "Home Screen",
-                                style: TextStyle(fontSize: 24),
-                              ),
-                            ),
-                          ),
+                          builder: (context) => const LoginPage(),
                         ),
                       );
                     },

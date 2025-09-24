@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:evently_app/providers/app_theme.dart';
+import 'package:evently_app/l10n/app_localizations.dart';
 import 'onboarding2.dart';
 import 'onboarding4.dart';
 
@@ -10,6 +11,7 @@ class OnboardingScreen3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var themeProvider = Provider.of<AppThemeProvider>(context);
+    final loc = AppLocalizations.of(context)!; // ✅ استدعاء localization
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -32,9 +34,9 @@ class OnboardingScreen3 extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                   const SizedBox(width: 10),
-                  const Text(
-                    'Evently',
-                    style: TextStyle(
+                  Text(
+                    loc.evently, // ✅ استخدم localization
+                    style: const TextStyle(
                       fontFamily: 'Jockey One',
                       fontWeight: FontWeight.w400,
                       fontSize: 36,
@@ -63,10 +65,10 @@ class OnboardingScreen3 extends StatelessWidget {
               const SizedBox(height: 20),
 
               // ===== الجملة الرئيسية =====
-              const Text(
-                'Effortless Event Planning',
+              Text(
+                loc.effortless_event_planning, // ✅ استدعاء من localization
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
                   fontSize: 20,
@@ -76,11 +78,11 @@ class OnboardingScreen3 extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 25), // زيادة المسافة بين الجملتين
+              const SizedBox(height: 25),
 
               // ===== الجملة الثانية حسب الـ Theme =====
               Text(
-                'Take the hassle out of organizing events with our all-in-one planning tools. From setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.',
+                loc.take_the_hassle_out_of_organizing, // ✅ استدعاء من localization
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'Inter',

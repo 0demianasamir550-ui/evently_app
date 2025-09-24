@@ -4,6 +4,8 @@ import 'package:evently_app/providers/app_theme.dart';
 import 'package:evently_app/providers/app_language_provider.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'register_light.dart';
+import 'forget_password_light.dart';
+import 'package:evently_app/home/home_screen.dart';
 
 // ------------------ CustomBox Widget ------------------
 class CustomBox extends StatelessWidget {
@@ -74,7 +76,11 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
-    print('Login with: $email / $password');
+    // لو كل حاجة صح، يروح للصفحة الرئيسية
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (_) => const MyAppWidget()),
+    );
   }
 
   @override
@@ -179,12 +185,20 @@ class _LoginPageState extends State<LoginPage> {
                   alignment: Alignment.centerRight,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
-                      loc.forget_password,
-                      style: const TextStyle(
-                        color: Color(0xFF5669FF),
-                        decoration: TextDecoration.underline,
-                        fontWeight: FontWeight.w500,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const ForgetPasswordPage()),
+                        );
+                      },
+                      child: Text(
+                        loc.forget_password,
+                        style: const TextStyle(
+                          color: Color(0xFF5669FF),
+                          decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),
@@ -269,7 +283,6 @@ class _LoginPageState extends State<LoginPage> {
                   height: 56,
                   child: ElevatedButton(
                     onPressed: () {
-                      // Google login code placeholder
                       print('Login with Google');
                     },
                     style: ElevatedButton.styleFrom(

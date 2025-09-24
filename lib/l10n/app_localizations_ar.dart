@@ -84,7 +84,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get register => 'تسجيل';
 
   @override
-  String get evently => 'ايفينتلى';
+  String get evently => 'ايفينتلي';
 
   @override
   String get login => 'تسجيل الدخول';
@@ -130,4 +130,44 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get already_have_account => 'هل لديك حساب بالفعل؟';
+
+  @override
+  String get forgetpassword => 'نسيت كلمه المرور';
+
+  @override
+  String get resetPassword => 'اعاده تعين كلمه المرور';
+
+  @override
+  String get personalize_experience => 'خصص تجربتك';
+
+  @override
+  String get choose_preferred_theme =>
+      'اختر النمط واللغه المفضلين لديك لبدء تجربه مريحه ومخصصه تناسب اسلوبك.';
+
+  @override
+  String get lets_start => 'لنبدأ';
+
+  @override
+  String get find_events_that_inspire => 'ابحث عن أحداث تلهمك';
+
+  @override
+  String get dive_into_world_of_events =>
+      'اغمر نفسك في عالم من الأحداث المصممة لتناسب اهتماماتك الفريدة. سواء كنت مهتمًا بالموسيقى الحية، ورش العمل الفنية، الشبكات المهنية، أو اكتشاف تجارب جديدة، لدينا شيء للجميع. توصياتنا المختارة ستساعدك على الاستكشاف والتواصل والاستفادة القصوى من كل فرصة حولك.';
+
+  @override
+  String get effortless_event_planning => 'تنظيم الأحداث بسهولة';
+
+  @override
+  String get take_the_hassle_out_of_organizing =>
+      'تخلص من متاعب تنظيم الأحداث باستخدام أدوات التخطيط الشاملة لدينا. من إعداد الدعوات وإدارة الردود وحتى جدولة التذكيرات وتنسيق التفاصيل، نحن نغطي كل شيء. خطط بسهولة وركز على ما يهم – إنشاء تجربة لا تُنسى لك ولضيوفك.';
+
+  @override
+  String get connect_with_friends => 'تواصل مع الأصدقاء وشارك اللحظات';
+
+  @override
+  String get share_moments_with_friends =>
+      'اجعل كل حدث مميزًا بمشاركة التجربة مع الآخرين. منصتنا تتيح لك دعوة الأصدقاء، وإبقاء الجميع على اطلاع، والاحتفال باللحظات معًا. التقط وشارك الإثارة مع شبكتك لتتمكن من إعادة عيش أبرز اللحظات وتقدير الذكريات.';
+
+  @override
+  String get supervised_by => 'تحت اشراف محمد نبيل';
 }

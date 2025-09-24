@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:evently_app/providers/app_theme.dart';
+import 'package:evently_app/l10n/app_localizations.dart';
 import 'onboarding3.dart';
 
 class OnboardingScreen2 extends StatelessWidget {
@@ -9,7 +10,7 @@ class OnboardingScreen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var themeProvider = Provider.of<AppThemeProvider>(context);
-    double screenWidth = MediaQuery.of(context).size.width;
+    final loc = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: themeProvider.isDarkMode() ? Colors.black : Colors.white,
@@ -31,9 +32,9 @@ class OnboardingScreen2 extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                   const SizedBox(width: 10),
-                  const Text(
-                    'Evently',
-                    style: TextStyle(
+                  Text(
+                    loc.evently,
+                    style: const TextStyle(
                       fontFamily: 'Jockey One',
                       fontWeight: FontWeight.w400,
                       fontSize: 36,
@@ -47,7 +48,7 @@ class OnboardingScreen2 extends StatelessWidget {
 
               const SizedBox(height: 30),
 
-              // ===== الصورة الكبيرة =====
+              // ===== الصورة الكبيرة (واحدة فقط) =====
               Center(
                 child: Image.asset(
                   'assets/images/image_two.png',
@@ -60,10 +61,10 @@ class OnboardingScreen2 extends StatelessWidget {
               const SizedBox(height: 20),
 
               // ===== الجملة الرئيسية =====
-              const Text(
-                'Find Events That Inspire You',
+              Text(
+                loc.find_events_that_inspire,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
                   fontSize: 20,
@@ -73,11 +74,11 @@ class OnboardingScreen2 extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 25), // تم زيادة المسافة بين الجملتين
+              const SizedBox(height: 25),
 
               // ===== الجملة الثانية حسب الـ Theme =====
               Text(
-                'Dive into a world of events crafted to fit your unique interests. Whether you\'re into live music, art workshops, professional networking, or simply discovering new experiences, we have something for everyone. Our curated recommendations will help you explore, connect, and make the most of every opportunity around you.',
+                loc.dive_into_world_of_events,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'Inter',
@@ -94,7 +95,7 @@ class OnboardingScreen2 extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(3, (index) {
-                  bool isActive = index == 0; // أول نقطة ملونة
+                  bool isActive = index == 0;
                   return Container(
                     margin: const EdgeInsets.symmetric(horizontal: 8),
                     width: 12,
@@ -117,7 +118,8 @@ class OnboardingScreen2 extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const OnboardingScreen3()),
+                        builder: (context) => const OnboardingScreen3(),
+                      ),
                     );
                   },
                   borderRadius: BorderRadius.circular(30),

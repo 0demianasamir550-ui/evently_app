@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:evently_app/providers/app_theme.dart';
+import 'package:evently_app/providers/app_language_provider.dart';
+import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/onboarding_screen/onboarding2.dart'; // استيراد الصفحة الثانية
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => AppThemeProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AppThemeProvider()),
+        ChangeNotifierProvider(create: (_) => AppLanguageProvider()),
+      ],
       child: const MyApp(),
     ),
   );
@@ -17,17 +22,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AppThemeProvider>(
-      builder: (context, themeProvider, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Onboarding Page 1',
-          theme: ThemeData.light(),
-          darkTheme: ThemeData.dark(),
-          themeMode: themeProvider.isDarkMode() ? ThemeMode.dark : ThemeMode.light,
-          home: const OnboardingScreen1(),
-        );
-      },
+    final themeProvider = Provider.of<AppThemeProvider>(context);
+    final langProvider = Provider.of<AppLanguageProvider>(context);
+
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Onboarding Page 1',
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: themeProvider.isDarkMode() ? ThemeMode.dark : ThemeMode.light,
+      locale: Locale(langProvider.appLanguage), // ربط اللغة بالـ provider
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      home: const OnboardingScreen1(),
     );
   }
 }
@@ -38,6 +45,8 @@ class OnboardingScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var themeProvider = Provider.of<AppThemeProvider>(context);
+    var langProvider = Provider.of<AppLanguageProvider>(context);
+    final loc = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: Container(
@@ -48,7 +57,7 @@ class OnboardingScreen1 extends StatelessWidget {
           children: [
             const SizedBox(height: 50),
 
-            // ====== اللوجو + كلمة Evently بجانب بعض ======
+            // اللوجو + كلمة Evently
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -60,10 +69,10 @@ class OnboardingScreen1 extends StatelessWidget {
                   colorBlendMode: BlendMode.srcIn,
                 ),
                 const SizedBox(width: 10),
-                const Text(
-                  'Evently',
+                Text(
+                  loc.evently,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontFamily: 'Jockey One',
                     fontWeight: FontWeight.w400,
                     fontSize: 36,
@@ -76,7 +85,7 @@ class OnboardingScreen1 extends StatelessWidget {
             ),
 
             const SizedBox(height: 40),
-            // ====== الصورة ======
+            // الصورة
             Center(
               child: Image.asset(
                 themeProvider.isDarkMode()
@@ -89,11 +98,11 @@ class OnboardingScreen1 extends StatelessWidget {
             ),
 
             const SizedBox(height: 20),
-            // ====== العنوان تحت الصورة ======
-            const Text(
-              "Personalize Your Experience",
+            // العنوان تحت الصورة
+            Text(
+              loc.personalize_experience,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
                 fontSize: 20,
@@ -104,11 +113,11 @@ class OnboardingScreen1 extends StatelessWidget {
             ),
 
             const SizedBox(height: 10),
-            // ====== الجملة الجديدة تحت العنوان مع لون ديناميكي حسب Theme ======
+            // الجملة الجديدة تحت العنوان
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Text(
-                "Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.",
+                loc.choose_preferred_theme,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'Inter',
@@ -121,7 +130,7 @@ class OnboardingScreen1 extends StatelessWidget {
             ),
 
             const Spacer(),
-            // ====== زر Let's Start أسفل الشاشة ======
+            // زر Let's Start
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
               child: InkWell(
@@ -140,10 +149,10 @@ class OnboardingScreen1 extends StatelessWidget {
                     color: const Color(0xFF5669FF),
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: const Center(
+                  child: Center(
                     child: Text(
-                      "Let's Start",
-                      style: TextStyle(
+                      loc.lets_start,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 24,
                         fontWeight: FontWeight.bold,

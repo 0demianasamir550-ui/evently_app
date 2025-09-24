@@ -130,4 +130,44 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get already_have_account => 'Already Have Account?';
+
+  @override
+  String get forgetpassword => 'Forget Password';
+
+  @override
+  String get resetPassword => 'Reset Password';
+
+  @override
+  String get personalize_experience => 'Personalize Your Experience';
+
+  @override
+  String get choose_preferred_theme =>
+      'Choose your preferred theme and language to start a comfortable, personalized experience.';
+
+  @override
+  String get lets_start => 'Let\'s Start';
+
+  @override
+  String get find_events_that_inspire => 'Find Events That Inspire You';
+
+  @override
+  String get dive_into_world_of_events =>
+      'Dive into a world of events crafted to fit your unique interests. Whether you\'re into live music, art workshops, professional networking, or discovering new experiences, we have something for everyone. Our curated recommendations will help you explore, connect, and make the most of every opportunity around you.';
+
+  @override
+  String get effortless_event_planning => 'Effortless Event Planning';
+
+  @override
+  String get take_the_hassle_out_of_organizing =>
+      'Take the hassle out of organizing events with our all-in-one planning tools. From setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.';
+
+  @override
+  String get connect_with_friends => 'Connect with Friends & Share Moments';
+
+  @override
+  String get share_moments_with_friends =>
+      'Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.';
+
+  @override
+  String get supervised_by => 'Supervised by Mohamed Nabil';
 }

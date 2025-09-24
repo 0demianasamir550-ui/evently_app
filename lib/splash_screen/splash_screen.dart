@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:evently_app/providers/app_theme.dart';
+import 'package:evently_app/providers/app_language_provider.dart';
 import 'package:evently_app/onboarding_screen/onboarding1.dart'; // استيراد الصفحة الأولى من Onboarding
+import 'package:evently_app/l10n/app_localizations.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => AppThemeProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AppThemeProvider()),
+        ChangeNotifierProvider(create: (_) => AppLanguageProvider()),
+      ],
       child: const MyApp(),
     ),
   );
@@ -17,8 +22,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AppThemeProvider>(
-      builder: (context, themeProvider, child) {
+    return Consumer2<AppThemeProvider, AppLanguageProvider>(
+      builder: (context, themeProvider, languageProvider, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Splash Screen',
@@ -26,6 +31,12 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
           themeMode:
           themeProvider.isDarkMode() ? ThemeMode.dark : ThemeMode.light,
+          locale: Locale(languageProvider.appLanguage), // استخدم الـ String مباشرة
+          supportedLocales: const [
+            Locale('en'),
+            Locale('ar'),
+          ],
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
           home: const SplashScreen(),
         );
       },
@@ -78,10 +89,10 @@ class _SplashScreenState extends State<SplashScreen> {
             const SizedBox(height: 20),
 
             // ====== نص Evently ======
-            const Text(
-              'Evently',
+            Text(
+              AppLocalizations.of(context)?.evently ?? 'Evently',
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'Jockey One',
                 fontWeight: FontWeight.w400,
                 fontSize: 36,
@@ -111,9 +122,9 @@ class _SplashScreenState extends State<SplashScreen> {
                   bottom: screenHeight * 0.02),
               child: Align(
                 alignment: Alignment.centerRight,
-                child: const Text(
-                  'Supervised by Mohamed Nabil',
-                  style: TextStyle(
+                child: Text(
+                  AppLocalizations.of(context)?.welcome_back ?? 'Supervised by Mohamed Nabil',
+                  style: const TextStyle(
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
