@@ -115,4 +115,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get login_with_google => 'تسجيل الدخول عبر جوجل';
+
+  @override
+  String get confirm_password => 'تاكيد كلمه المرور';
+
+  @override
+  String get password_not_match => 'كلمتا المرور غير متطابقين';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get re_password => 'اعد ادخال كلمه المرور';
+
+  @override
+  String get already_have_account => 'هل لديك حساب بالفعل؟';
 }

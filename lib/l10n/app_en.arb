@@ -1,4 +1,5 @@
 {
+  "@@locale": "en",
   "language": "Language",
   "english": "English",
   "arabic": "Arabic",
@@ -6,17 +7,14 @@
   "dark": "Dark",
   "light": "Light",
   "logout": "Logout",
-
   "home": "Home",
   "map": "Map",
   "favorite": "Favorite",
   "profile": "Profile",
-
   "searchHint": "Search for Event",
   "birthdayText": "This is Birthday Party",
   "meetingText": "Meeting for Updating The Development Method",
   "nowLabel": "Now",
-
   "welcome_back": "Welcome Back ✨",
   "user_name": "John Safwat",
   "location": "Cairo, Egypt",
@@ -26,17 +24,21 @@
   "all_events": "All Events",
   "sports_events": "Sports Events",
   "birthday_events": "Birthday Events",
-  "register" : "Register",
-  "evently" : "Evently",
-  "login" : "Login",
-  "email" : "Email",
-  "password" : "Password",
-  "fill_all_fields" : "Please fill all fields",
-  "invalid_email" : "Please enter a vaild email",
-  "forget_password" : "Forget Password?",
-  "dont_have_account" : "Don't Have Account?",
-  "create_account" : "Create Account",
-  "or" : "Or",
-  "login_with_google" : "Login With Google"
-
+  "register": "Register",
+  "evently": "Evently",
+  "login": "Login",
+  "email": "Email",
+  "password": "Password",
+  "fill_all_fields": "Please fill all fields",
+  "invalid_email": "Please enter a valid email",
+  "forget_password": "Forget Password?",
+  "dont_have_account": "Don't Have Account?",
+  "create_account": "Create Account",
+  "or": "Or",
+  "login_with_google": "Login With Google",
+  "confirm_password": "Confirm Password",
+  "password_not_match": "Password Not Match",
+  "name": "Name",
+  "re_password": "Re password",
+  "already_have_account": "Already Have Account?"
 }

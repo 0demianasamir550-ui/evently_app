@@ -1,9 +1,11 @@
+import 'package:evently_app/authentication/widgets/custominputfiled.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:evently_app/providers/app_theme.dart';
 import 'package:evently_app/providers/app_language_provider.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'login_light.dart';
+
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -13,22 +15,25 @@ class RegisterPage extends StatelessWidget {
     return Consumer2<AppThemeProvider, AppLanguageProvider>(
       builder: (context, themeProvider, languageProvider, child) {
         final isDark = themeProvider.isDarkMode();
-        final loc = AppLocalizations.of(context)!; // كل النصوص مترجمة حسب اللغة
-
+        final loc = AppLocalizations.of(context)!;
         final backgroundColor = isDark ? const Color(0xFF101127) : Colors.white;
         final appBarColor = backgroundColor;
         final logoColor = const Color(0xFF5669FF);
+        final iconColor = isDark ? Colors.white : const Color(0xFF7B7B7B);
+        final textColor = isDark ? Colors.white : const Color(0xFF7B7B7B);
+
+        // Controllers
+        final nameController = TextEditingController();
+        final emailController = TextEditingController();
+        final passwordController = TextEditingController();
+        final rePasswordController = TextEditingController();
 
         return Scaffold(
           backgroundColor: backgroundColor,
           body: Column(
             children: [
               // AppBar وهمي
-              SizedBox(
-                width: double.infinity,
-                height: 48,
-                child: Container(color: appBarColor),
-              ),
+              SizedBox(width: double.infinity, height: 48, child: Container(color: appBarColor)),
               const SizedBox(height: 8),
               // Header السهم + Register
               Padding(
@@ -42,16 +47,12 @@ class RegisterPage extends StatelessWidget {
                           MaterialPageRoute(builder: (_) => const LoginPage()),
                         );
                       },
-                      child: const Icon(
-                        Icons.arrow_back,
-                        size: 28,
-                        color: Color(0xFF5669FF),
-                      ),
+                      child: const Icon(Icons.arrow_back, size: 28, color: Color(0xFF5669FF)),
                     ),
                     Expanded(
                       child: Center(
                         child: Text(
-                          loc.register, // <-- نص مترجم حسب اللغة
+                          loc.register,
                           style: const TextStyle(
                             fontFamily: "Jockey One",
                             fontWeight: FontWeight.w400,
@@ -80,9 +81,8 @@ class RegisterPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 4),
-              // نص اسم التطبيق مترجم
               Text(
-                loc.evently, // <-- نص مترجم حسب اللغة
+                loc.evently,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontFamily: "Jockey One",
@@ -93,7 +93,111 @@ class RegisterPage extends StatelessWidget {
                   color: Color(0xFF5669FF),
                 ),
               ),
-              Expanded(child: Container()),
+              const SizedBox(height: 24),
+              // المستطيلات الأربعة
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    CustomInputField(
+                      controller: nameController,
+                      hintText: "Name",
+                      prefixIcon: Icons.person,
+                    ),
+                    const SizedBox(height: 16),
+                    CustomInputField(
+                      controller: emailController,
+                      hintText: "Email",
+                      prefixIcon: Icons.email,
+                    ),
+                    const SizedBox(height: 16),
+                    CustomInputField(
+                      controller: passwordController,
+                      hintText: "Password",
+                      obscureText: true,
+                      prefixIcon: Icons.lock,
+                      suffixIcon: IconButton(
+                        icon: const Icon(Icons.visibility_off),
+                        onPressed: () {},
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    CustomInputField(
+                      controller: rePasswordController,
+                      hintText: "Re Password",
+                      obscureText: true,
+                      prefixIcon: Icons.lock,
+                      suffixIcon: IconButton(
+                        icon: const Icon(Icons.visibility_off),
+                        onPressed: () {},
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 24),
+              // زر Create Account
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (_) => const LoginPage()),
+                    );
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF5669FF),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Create Account",
+                        style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              // Already Have Account
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Already Have Account? ",
+                    style: TextStyle(
+                      color: isDark ? Colors.white : Colors.black, // التعديل هنا
+                      fontSize: 14,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (_) => const LoginPage()),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        const Text(
+                          "Login",
+                          style: TextStyle(
+                            color: Color(0xFF5669FF),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        const Divider(color: Color(0xFF5669FF), thickness: 2, height: 0),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         );
@@ -127,10 +231,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: themeProvider.isDarkMode() ? ThemeData.dark() : ThemeData.light(),
       locale: Locale(languageProvider.appLanguage),
-      supportedLocales: const [
-        Locale('en'),
-        Locale('ar'),
-      ],
+      supportedLocales: const [Locale('en'), Locale('ar')],
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       home: const RegisterPage(),
     );

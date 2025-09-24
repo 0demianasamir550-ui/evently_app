@@ -99,7 +99,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fill_all_fields => 'Please fill all fields';
 
   @override
-  String get invalid_email => 'Please enter a vaild email';
+  String get invalid_email => 'Please enter a valid email';
 
   @override
   String get forget_password => 'Forget Password?';
@@ -115,4 +115,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get login_with_google => 'Login With Google';
+
+  @override
+  String get confirm_password => 'Confirm Password';
+
+  @override
+  String get password_not_match => 'Password Not Match';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get re_password => 'Re password';
+
+  @override
+  String get already_have_account => 'Already Have Account?';
 }

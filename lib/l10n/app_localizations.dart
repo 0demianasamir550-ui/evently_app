@@ -281,7 +281,7 @@ abstract class AppLocalizations {
   /// No description provided for @invalid_email.
   ///
   /// In en, this message translates to:
-  /// **'Please enter a vaild email'**
+  /// **'Please enter a valid email'**
   String get invalid_email;
 
   /// No description provided for @forget_password.
@@ -313,6 +313,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Login With Google'**
   String get login_with_google;
+
+  /// No description provided for @confirm_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirm_password;
+
+  /// No description provided for @password_not_match.
+  ///
+  /// In en, this message translates to:
+  /// **'Password Not Match'**
+  String get password_not_match;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @re_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Re password'**
+  String get re_password;
+
+  /// No description provided for @already_have_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Already Have Account?'**
+  String get already_have_account;
 }
 
 class _AppLocalizationsDelegate
