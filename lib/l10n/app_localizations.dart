@@ -203,7 +203,7 @@ abstract class AppLocalizations {
   /// No description provided for @location.
   ///
   /// In en, this message translates to:
-  /// **'Cairo, Egypt'**
+  /// **'Location'**
   String get location;
 
   /// No description provided for @all.
@@ -415,6 +415,150 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Supervised by Mohamed Nabil'**
   String get supervised_by;
+
+  /// No description provided for @create_event.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Event'**
+  String get create_event;
+
+  /// No description provided for @category_bookClub.
+  ///
+  /// In en, this message translates to:
+  /// **'Book Club'**
+  String get category_bookClub;
+
+  /// No description provided for @category_sport.
+  ///
+  /// In en, this message translates to:
+  /// **'Sport'**
+  String get category_sport;
+
+  /// No description provided for @category_birthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday'**
+  String get category_birthday;
+
+  /// No description provided for @category_meeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Meeting'**
+  String get category_meeting;
+
+  /// No description provided for @category_gaming.
+  ///
+  /// In en, this message translates to:
+  /// **'Gaming'**
+  String get category_gaming;
+
+  /// No description provided for @category_workshop.
+  ///
+  /// In en, this message translates to:
+  /// **'Workshop'**
+  String get category_workshop;
+
+  /// No description provided for @category_exhibition.
+  ///
+  /// In en, this message translates to:
+  /// **'Exhibition'**
+  String get category_exhibition;
+
+  /// No description provided for @category_holiday.
+  ///
+  /// In en, this message translates to:
+  /// **'Holiday'**
+  String get category_holiday;
+
+  /// No description provided for @category_eating.
+  ///
+  /// In en, this message translates to:
+  /// **'Eating'**
+  String get category_eating;
+
+  /// No description provided for @event_date.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Date'**
+  String get event_date;
+
+  /// No description provided for @choose_date.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Date'**
+  String get choose_date;
+
+  /// No description provided for @event_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Time'**
+  String get event_time;
+
+  /// No description provided for @choose_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Time'**
+  String get choose_time;
+
+  /// No description provided for @event_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Title'**
+  String get event_title;
+
+  /// No description provided for @title.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get title;
+
+  /// No description provided for @description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get description;
+
+  /// No description provided for @event_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Description'**
+  String get event_description;
+
+  /// No description provided for @choose_event_location.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Event Location'**
+  String get choose_event_location;
+
+  /// No description provided for @please_enter_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter title'**
+  String get please_enter_title;
+
+  /// No description provided for @please_enter_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter description'**
+  String get please_enter_description;
+
+  /// No description provided for @please_select_date.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select date'**
+  String get please_select_date;
+
+  /// No description provided for @please_select_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select time'**
+  String get please_select_time;
+
+  /// No description provided for @please_select_location.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select location'**
+  String get please_select_location;
 }
 
 class _AppLocalizationsDelegate

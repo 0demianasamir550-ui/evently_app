@@ -60,7 +60,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get user_name => 'John Safwat';
 
   @override
-  String get location => 'Cairo, Egypt';
+  String get location => 'Location';
 
   @override
   String get all => 'All';
@@ -170,4 +170,76 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get supervised_by => 'Supervised by Mohamed Nabil';
+
+  @override
+  String get create_event => 'Create Event';
+
+  @override
+  String get category_bookClub => 'Book Club';
+
+  @override
+  String get category_sport => 'Sport';
+
+  @override
+  String get category_birthday => 'Birthday';
+
+  @override
+  String get category_meeting => 'Meeting';
+
+  @override
+  String get category_gaming => 'Gaming';
+
+  @override
+  String get category_workshop => 'Workshop';
+
+  @override
+  String get category_exhibition => 'Exhibition';
+
+  @override
+  String get category_holiday => 'Holiday';
+
+  @override
+  String get category_eating => 'Eating';
+
+  @override
+  String get event_date => 'Event Date';
+
+  @override
+  String get choose_date => 'Choose Date';
+
+  @override
+  String get event_time => 'Event Time';
+
+  @override
+  String get choose_time => 'Choose Time';
+
+  @override
+  String get event_title => 'Event Title';
+
+  @override
+  String get title => 'Title';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get event_description => 'Event Description';
+
+  @override
+  String get choose_event_location => 'Choose Event Location';
+
+  @override
+  String get please_enter_title => 'Please enter title';
+
+  @override
+  String get please_enter_description => 'Please enter description';
+
+  @override
+  String get please_select_date => 'Please select date';
+
+  @override
+  String get please_select_time => 'Please select time';
+
+  @override
+  String get please_select_location => 'Please select location';
 }

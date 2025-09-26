@@ -60,7 +60,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get user_name => 'جون صفوت';
 
   @override
-  String get location => 'القاهرة، مصر';
+  String get location => 'الموقع';
 
   @override
   String get all => 'الكل';
@@ -170,4 +170,76 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get supervised_by => 'تحت اشراف محمد نبيل';
+
+  @override
+  String get create_event => 'انشاء حدث';
+
+  @override
+  String get category_bookClub => 'نادي الكتاب';
+
+  @override
+  String get category_sport => 'رياضة';
+
+  @override
+  String get category_birthday => 'عيد ميلاد';
+
+  @override
+  String get category_meeting => 'اجتماع';
+
+  @override
+  String get category_gaming => 'ألعاب';
+
+  @override
+  String get category_workshop => 'ورشة عمل';
+
+  @override
+  String get category_exhibition => 'معرض';
+
+  @override
+  String get category_holiday => 'عطلة';
+
+  @override
+  String get category_eating => 'أكل';
+
+  @override
+  String get event_date => 'تاريخ الحدث';
+
+  @override
+  String get choose_date => 'اختر التاريخ';
+
+  @override
+  String get event_time => 'وقت الحدث';
+
+  @override
+  String get choose_time => 'اختر الوقت';
+
+  @override
+  String get event_title => 'عنوان الحدث';
+
+  @override
+  String get title => 'عنوان';
+
+  @override
+  String get description => 'الوصف';
+
+  @override
+  String get event_description => 'وصف الحدث';
+
+  @override
+  String get choose_event_location => 'اختر مكان الحدث';
+
+  @override
+  String get please_enter_title => 'الرجاء إدخال العنوان';
+
+  @override
+  String get please_enter_description => 'الرجاء إدخال الوصف';
+
+  @override
+  String get please_select_date => 'الرجاء اختيار التاريخ';
+
+  @override
+  String get please_select_time => 'الرجاء اختيار الوقت';
+
+  @override
+  String get please_select_location => 'الرجاء اختيار الموقع';
 }
